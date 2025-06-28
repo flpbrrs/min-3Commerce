@@ -2,7 +2,9 @@
     "name": "@3c/domain",
     "version": "0.0.0",
     "private": true,
-    "scripts": {},
+    "scripts": {
+        "test": "jest"
+    },
     "exports": {
         ".": {
             "default": "./src"
@@ -10,7 +12,14 @@
     },
     "devDependencies": {
         "@3c/eslint": "*",
-        "@3c/typescript": "*"
+        "@3c/typescript": "*",
+        "@jest/globals": "^30.0.3",
+        "@types/uuid": "^10.0.0",
+        "jest": "^30.0.3",
+        "ts-jest": "^29.4.0"
+    },
+    "dependencies": {
+        "uuid": "^11.1.0"
     },
     "eslintConfig": {
         "extends": "@3c/eslint/base"

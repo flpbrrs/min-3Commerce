@@ -22,7 +22,7 @@ describe("Testes para o objeto de erro: DomainError", () => {
 
     it("Deve lançar um DomainError com código, valor e extras", () => {
         expect(() => {
-            DomainError.throwDomainError(
+            DomainError.launch(
                 'domain.test',
                 'test value',
                 { detail: 'extra detail' }
@@ -30,7 +30,7 @@ describe("Testes para o objeto de erro: DomainError", () => {
         }).toThrow(DomainError)
 
         try {
-            DomainError.throwDomainError(
+            DomainError.launch(
                 'domain.test',
                 'test value',
                 { detail: 'extra detail' }

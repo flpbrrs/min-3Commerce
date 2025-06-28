@@ -1,27 +1,24 @@
 export interface DomainErrorProps {
-    code?: string,
-    value?: any,
-    extras?: object
+    code: string,
+    message: string
 }
 
 export default class DomainError extends Error {
-    readonly code?: string
-    readonly value?: any
-    readonly extras?: any
+    readonly code: string
+    readonly message: string
 
-    constructor(readonly props?: DomainErrorProps) {
-        super(props?.code ?? 'domain.generic')
+    private constructor(readonly props: DomainErrorProps) {
+        super(props.code)
 
-        this.code = props?.code ?? 'domain.generic'
-        this.value = props?.value
-        this.extras = props?.extras ?? {}
+        this.code = props.code
+        this.message = props.message
     }
 
-    static create(code?: string, value?: any, extras?: any): DomainError {
-        return new DomainError({ code, value, extras })
+    static create(code: string, message: string): DomainError {
+        return new DomainError({ code, message })
     }
 
-    static launch(code?: string, value?: any, extras?: any): never {
-        throw new DomainError({ code, value, extras })
+    static launch(code: string, message: string): never {
+        throw new DomainError({ code, message })
     }
 }

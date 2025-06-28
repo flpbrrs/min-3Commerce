@@ -6,9 +6,8 @@ export default class NomeSimples {
     constructor(value: string) {
         if (!value || value.trim().length === 0)
             DomainError.launch(
-                'nome-simples.value-empty',
-                value,
-                { message: 'Nome não pode ser vazio.' }
+                'nome.valor-vazio',
+                'Nome não pode ser vazio.'
             )
 
         this.value = value.trim();

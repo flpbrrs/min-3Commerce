@@ -6,9 +6,8 @@ export default class ValorPositivo {
     constructor(value: number) {
         if (value <= 0)
             DomainError.launch(
-                'valor-positivo.value-negative',
-                value,
-                { message: 'Valor deve ser positivo e maior que zero.' }
+                'numero.valor-negativo',
+                'Valor deve ser positivo e maior que zero.'
             )
 
         this.value = value;

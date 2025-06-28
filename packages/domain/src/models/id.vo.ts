@@ -9,9 +9,8 @@ export default class Id {
 
         if (!Id.isValid(this.value))
             DomainError.launch(
-                'id.invalid',
-                this.value,
-                { message: 'ID inválido.' }
+                'id.valor-invalido',
+                'O ID fornecido está no formato inválido'
             )
     }
 

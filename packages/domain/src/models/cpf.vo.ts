@@ -6,9 +6,8 @@ export default class CPF {
     constructor(value: string) {
         if (!CPF.isValid(value))
             DomainError.launch(
-                'cpf.invalid',
-                value,
-                { message: 'CPF inválido.' }
+                'cpf.valor-invalido',
+                'Deve conter 11 dígitos sem formatação (apenas números).'
             )
 
         this.value = value;

@@ -6,9 +6,8 @@ export default class Preco {
     constructor(value: number) {
         if (value < 0)
             DomainError.launch(
-                'preco.value-negative',
-                value,
-                { message: 'Preço não pode ser negativo.' }
+                'preco.valor-negativo',
+                'O preço não pode ter um valor negativo.'
             )
 
         this.value = value;

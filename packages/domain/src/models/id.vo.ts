@@ -8,7 +8,11 @@ export default class Id {
         this.value = value ?? uuid()
 
         if (!Id.isValid(this.value))
-            DomainError.throwDomainError('id.invalid', this.value)
+            DomainError.launch(
+                'id.invalid',
+                this.value,
+                { message: 'ID inválido.' }
+            )
     }
 
     equals(id: Id): boolean {

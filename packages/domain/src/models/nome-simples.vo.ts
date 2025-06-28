@@ -5,11 +5,11 @@ export default class NomeSimples {
 
     constructor(value: string) {
         if (!value || value.trim().length === 0)
-            throw new DomainError({
-                code: 'nome-simples.value-empty',
+            DomainError.launch(
+                'nome-simples.value-empty',
                 value,
-                extras: { message: 'Nome não pode ser vazio.' }
-            })
+                { message: 'Nome não pode ser vazio.' }
+            )
 
         this.value = value.trim();
     }

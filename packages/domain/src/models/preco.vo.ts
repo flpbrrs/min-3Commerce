@@ -5,11 +5,12 @@ export default class Preco {
 
     constructor(value: number) {
         if (value < 0)
-            throw new DomainError({
-                code: 'preco.value-negative',
+            DomainError.launch(
+                'preco.value-negative',
                 value,
-                extras: { message: 'Preço não pode ser negativo.' }
-            })
+                { message: 'Preço não pode ser negativo.' }
+            )
+
         this.value = value;
     }
 

@@ -21,7 +21,7 @@ export default class DomainError extends Error {
         return new DomainError({ code, value, extras })
     }
 
-    static throwDomainError(code?: string, value?: any, extras?: any): never {
+    static launch(code?: string, value?: any, extras?: any): never {
         throw new DomainError({ code, value, extras })
     }
 }

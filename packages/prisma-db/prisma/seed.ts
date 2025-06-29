@@ -18,9 +18,9 @@ async function seed() {
 
     await prisma.cliente.createMany({
         data: [
-            { nomeFantasia: "Loja do seu Pedro LTDA", documento: "12345678901" },
-            { nomeFantasia: "Mercadinho Seu Vicente ME", documento: "987654321" },
-            { nomeFantasia: "Supermercado da Seu Paulo", documento: "1122334455" },
+            { nomeFantasia: "Loja do seu Pedro LTDA", documento: "54082432060" },
+            { nomeFantasia: "Mercadinho Seu Vicente ME", documento: "87752550060" },
+            { nomeFantasia: "Supermercado da Seu Paulo", documento: "15411408008" },
         ]
     })
 }

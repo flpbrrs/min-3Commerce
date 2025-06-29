@@ -3,7 +3,8 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "start:test": "tsx src/test-producer.ts"
+        "test:producer": "tsx src/test-producer.ts",
+        "test:consumer": "tsx src/test-consumer.ts"
     },
     "devDependencies": {
         "@3c/eslint": "*",

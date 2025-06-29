@@ -4,7 +4,6 @@ import 'dotenv/config'
 async function main() {
     const pedido = {
         clienteId: '05734d9c-2d6c-469d-a685-fe2dd067a7da',
-        dataCriacao: new Date().toISOString(),
         itens: [
             {
                 itemId: '04f0372d-f296-44b4-9acd-f449e22005ef',

@@ -13,8 +13,8 @@ export interface PedidoProps extends EntityProps {
 type PedidoField = 'itens' | 'clienteId';
 
 export default class Pedido extends Entity<Pedido, PedidoProps> {
-    readonly itens: PedidoItem[];
     readonly clienteId: Id;
+    readonly itens: PedidoItem[];
 
     private constructor(props: PedidoProps) {
         super(props);

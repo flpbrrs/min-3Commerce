@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Cliente {
+  id           String @id @default(uuid())
+  nomeFantasia String @map("nome_fantasia")
+  documento    String @unique
+
+  pedidos Pedido[]
+
+  dataCriacao  DateTime @default(now()) @map("data_criacao")
+  dataControle DateTime @updatedAt @map("data_controle")
+
+  @@map("clientes")
+}
+
+model Produto {
+  id    String @id @default(uuid())
+  nome  String
+  valor Float
+
+  dataCriacao  DateTime @default(now()) @map("data_criacao")
+  dataControle DateTime @updatedAt @map("data_controle")
+
+  item_on PedidoProduto[]
+
+  @@map("produtos")
+}
+
+enum PedidoStatus {
+  PENDENTE
+  PAGO
+  ENVIADO
+  ENTREGUE
+  CANCELADO
+}
+
+model Pedido {
+  id         String @id @default(uuid())
+  valorTotal Float  @map("valor_total")
+
+  dataCriacao  DateTime @default(now()) @map("data_criacao")
+  dataControle DateTime @updatedAt @map("data_controle")
+
+  itens PedidoProduto[]
+
+  cliente   Cliente @relation(fields: [clienteId], references: [id])
+  clienteId String  @map("cliente_id")
+
+  @@map("pedidos")
+}
+
+model PedidoProduto {
+  id            String @id @default(uuid())
+  quantidade    Int
+  valorUnitario Float  @map("valor_unitario")
+
+  produto    Produto @relation(fields: [produto_id], references: [id])
+  produto_id String  @map("produto_id")
+
+  Pedido   Pedido @relation(fields: [pedidoId], references: [id])
+  pedidoId String @map("pedido_id")
+
+  @@unique([pedidoId, produto_id])
+  @@map("pedido_itens")
+}

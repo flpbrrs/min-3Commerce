@@ -1,0 +1,32 @@
+version: "3.7"
+services:
+  pg:
+    image: bitnami/postgresql:latest
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRESQL_USER=postgres
+      - POSTGRESQL_PASSWORD=postgres
+      - POSTGRESQL_DB=m3c
+    volumes:
+      - pgdata:/bitnami/postgresql
+    networks:
+      - m3c-network
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    networks:
+      - m3c-network
+
+volumes:
+  pgdata:
+
+networks:
+  m3c-network:
+    driver: bridge

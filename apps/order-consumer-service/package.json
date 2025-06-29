@@ -1,0 +1,18 @@
+{
+    "name": "@3c/oc-service",
+    "version": "0.0.0",
+    "scripts": {
+        "dev": "tsx watch src/index.ts"
+    },
+    "dependencies": {
+        "@3c/rabbit-queue": "*",
+        "@3c/prisma-db": "*",
+        "@3c/domain": "*"
+    },
+    "devDependencies": {
+        "@3c/eslint": "*",
+        "@3c/typescript": "*",
+        "@types/node": "^24.0.7",
+        "tsx": "^4.20.3"
+    }
+}

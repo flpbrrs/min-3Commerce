@@ -1,0 +1,15 @@
+{
+    "extends": "@3c/typescript/base.json",
+    "compilerOptions": {
+        "outDir": "dist",
+        "rootDir": "src"
+    },
+    "include": [
+        "src",
+        "@types"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}

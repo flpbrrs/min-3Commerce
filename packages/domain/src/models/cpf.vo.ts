@@ -17,7 +17,9 @@ export default class CPF {
         return this.value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
     }
 
-    static isValid(cpf: string): boolean {
+    static isValid(cpf?: string): boolean {
+        if (!cpf || typeof cpf !== 'string') return false
+
         const cleaned = cpf.replace(/\D/g, '');
         if (cleaned.length !== 11 || /^(\d)\1{10}$/.test(cleaned)) {
             return false;

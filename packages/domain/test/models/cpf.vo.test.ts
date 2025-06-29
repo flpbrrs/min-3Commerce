@@ -13,6 +13,7 @@ describe("Testes para o objeto de valor: CPF", () => {
         expect(() => new CPF("1234567890")).toThrow(DomainError);
         expect(() => new CPF("123456789012")).toThrow(DomainError);
         expect(() => new CPF("11111111111")).toThrow(DomainError);
+        expect(() => new CPF("")).toThrow(DomainError);
     });
 
     it("Deve validar corretamente CPFs", () => {

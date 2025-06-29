@@ -26,6 +26,15 @@ describe("Testes para o objeto de valor: Preço", () => {
         expect(preco1.equals(preco2)).toBe(true)
     })
 
+    it("Deve converter um número ou Preço para o formato monetário", () => {
+        const preco1 = new Preco(20.00)
+        const preco2 = 20.00
+
+        expect(Preco.toFormattedPrice(preco1)).toBe('R$ 20,00')
+        expect(Preco.toFormattedPrice(preco2)).toBe('R$ 20,00')
+        expect(Preco.toFormattedPrice(-5)).toBe('R$0,00')
+    })
+
     it("Deve validar corretamente Preço com fontes diferentes", () => {
         const preco1 = new Preco(20.00)
         const preco2 = 20.00

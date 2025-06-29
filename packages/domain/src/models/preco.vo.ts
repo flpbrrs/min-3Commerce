@@ -32,7 +32,7 @@ export default class Preco {
     }
 
     static toFormattedPrice(preco: Preco | number): string {
-        if (!this.isValid(preco)) return 'R$ 0,00';
+        if (!this.isValid(preco)) return 'R$0,00';
         return preco instanceof Preco ? preco.formatted : new Preco(preco).formatted;
     }
 }

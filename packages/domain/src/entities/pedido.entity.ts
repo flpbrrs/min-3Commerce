@@ -6,24 +6,25 @@ import Preco from "../models/preco.vo";
 import PedidoItem, { PedidoItemProps } from "./pedido-item.entity";
 
 export interface PedidoProps extends EntityProps {
-    valorTotal?: number
     itens?: PedidoItemProps[]
     clienteId?: string
 }
 
-type PedidoField = 'valorTotal' | 'itens' | 'clienteId';
+type PedidoField = 'itens' | 'clienteId';
 
 export default class Pedido extends Entity<Pedido, PedidoProps> {
-    readonly valorTotal: Preco;
     readonly itens: PedidoItem[];
     readonly clienteId: Id;
 
     private constructor(props: PedidoProps) {
         super(props);
 
-        this.valorTotal = new Preco(props.valorTotal!);
         this.itens = (props.itens!).map(item => PedidoItem.create(item));
         this.clienteId = new Id(props.clienteId!);
+    }
+
+    get valorTotal(): Preco {
+        return new Preco(this.itens.reduce((total, item) => total + item.valorTotal, 0));
     }
 
     static create(props: PedidoProps): Pedido {
@@ -47,14 +48,6 @@ export default class Pedido extends Entity<Pedido, PedidoProps> {
 
     private static validate(props: PedidoProps): DomainError[] {
         const valueObjectErros: DomainError[] = [];
-
-        if (!Preco.isValid(props.valorTotal))
-            valueObjectErros.push(
-                DomainError.create(
-                    'pedido.valor-total-invalido',
-                    'O valor total do pedido deve ser um número válido.'
-                )
-            );
 
         if (!props.itens || !Array.isArray(props.itens) || props.itens.length === 0)
             valueObjectErros.push(

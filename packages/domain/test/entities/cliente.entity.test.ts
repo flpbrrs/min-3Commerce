@@ -41,7 +41,6 @@ describe("Testes para a entidade Cliente", () => {
             pedidos: [
                 {
                     id: pedidoId,
-                    valorTotal: 100.00,
                     itens: [
                         {
                             quantidade: 2,

@@ -6,7 +6,6 @@ import PedidoItem from '../../src/entities/pedido-item.entity';
 describe("Testes para a entidade Pedido", () => {
     it("Deve criar um Pedido válido", () => {
         const pedido = Pedido.create({
-            valorTotal: 150.00,
             itens: [
                 {
                     quantidade: 2,
@@ -18,24 +17,15 @@ describe("Testes para a entidade Pedido", () => {
             clienteId: Id.generate()
         });
 
-        expect(pedido.valorTotal.value).toBe(150.00);
         expect(pedido.itens.length).toBe(1);
         expect(pedido.itens[0].quantidade.value).toBe(2);
         expect(pedido.itens[0].valorUnitario.value).toBe(50.00);
         expect(pedido.clienteId.value).toBeDefined();
-    });
-
-    it("Deve lançar erro para valor total inválido", () => {
-        expect(() => Pedido.create({
-            valorTotal: -100.00,
-            itens: [],
-            clienteId: "cliente-789"
-        })).toThrow();
+        expect(pedido.valorTotal.value).toBe(100.00);
     });
 
     it("Deve lançar erro para itens inválidos", () => {
         expect(() => Pedido.create({
-            valorTotal: 150.00,
             itens: [],
             clienteId: "cliente-789"
         })).toThrow();
@@ -43,7 +33,6 @@ describe("Testes para a entidade Pedido", () => {
 
     it("Deve lançar erro para clienteId inválido", () => {
         expect(() => Pedido.create({
-            valorTotal: 150.00,
             itens: [
                 {
                     quantidade: 2,

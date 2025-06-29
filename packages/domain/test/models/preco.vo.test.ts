@@ -32,7 +32,7 @@ describe("Testes para o objeto de valor: Preço", () => {
 
         expect(Preco.toFormattedPrice(preco1)).toBe('R$ 20,00')
         expect(Preco.toFormattedPrice(preco2)).toBe('R$ 20,00')
-        expect(Preco.toFormattedPrice(-5)).toBe('R$0,00')
+        expect(Preco.toFormattedPrice(-5)).toBe('R$ 0,00')
     })
 
     it("Deve validar corretamente Preço com fontes diferentes", () => {

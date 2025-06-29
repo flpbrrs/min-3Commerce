@@ -12,8 +12,7 @@ export async function criarPedido(app: FastifyInstance) {
                     itens: z.array(
                         z.object({
                             itemId: z.string().uuid(),
-                            quantidade: z.number().int().positive(),
-                            valorUnitario: z.number().positive(),
+                            quantidade: z.number().int().positive()
                         })
                     ).min(1)
                 })

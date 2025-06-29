@@ -30,4 +30,9 @@ export default class Preco {
         if (preco === undefined || preco === null) return false;
         return preco instanceof Preco ? true : typeof preco === 'number' && preco >= 0;
     }
+
+    static toFormattedPrice(preco: Preco | number): string {
+        if (!this.isValid(preco)) return 'R$ 0,00';
+        return preco instanceof Preco ? preco.formatted : new Preco(preco).formatted;
+    }
 }

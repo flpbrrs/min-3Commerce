@@ -5,6 +5,5 @@ import fastifyPlugin from "fastify-plugin";
 export const rabbitMQPlugin = fastifyPlugin(
     async (app: FastifyInstance) => {
         app.decorate("queuePublish", publish)
-        console.log("rabbitMQPlugin registered", app.queuePublish);
     }
 )

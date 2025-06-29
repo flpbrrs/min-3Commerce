@@ -20,8 +20,6 @@ export async function criarPedido(app: FastifyInstance) {
             }
         },
         async (request, reply) => {
-            console.log(app.queuePublish)
-
             await app.queuePublish('pedidos', request.body)
 
             reply.status(202).send({ status: "pedido enviado à fila" });

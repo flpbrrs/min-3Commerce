@@ -1,0 +1,20 @@
+{
+    "name": "@3c/rabbit-queue",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "start:test": "tsx src/test-producer.ts"
+    },
+    "devDependencies": {
+        "@3c/eslint": "*",
+        "@3c/typescript": "*",
+        "@types/amqplib": "^0.10.7",
+        "tsx": "^4.20.3"
+    },
+    "exports": {
+        ".": "./src/index.ts"
+    },
+    "dependencies": {
+        "amqplib": "^0.10.8"
+    }
+}

@@ -8,6 +8,8 @@
         "db:deploy": "prisma migrate deploy"
     },
     "devDependencies": {
+        "@3c/eslint": "*",
+        "@3c/typescript": "*",
         "prisma": "^6.10.1",
         "tsx": "^4.20.3"
     },

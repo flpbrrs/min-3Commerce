@@ -8,7 +8,8 @@
     "exports": {
         "./entities": "./src/entities/index.ts",
         "./providers": "./src/providers/index.ts",
-        "./services": "./src/services/index.ts"
+        "./services": "./src/services/index.ts",
+        "./models": "./src/models/index.ts"
     },
     "devDependencies": {
         "@3c/eslint": "*",

@@ -15,14 +15,13 @@ export default function RootLayout({
     <html lang="pt-br">
       <body className="
         antialiased bg-emerald-500 h-screen
-        flex flex-col
-        xl:flex-row
+        flex flex-col xl:flex-row select-none
       ">
         <nav className="p-4">
           <Image
             width={96}
             height={96}
-            src="./3commerce_logo.svg"
+            src="/3commerce_logo.svg"
             alt="3C E-Commerce"
           />
         </nav>

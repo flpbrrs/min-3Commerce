@@ -8,4 +8,8 @@
     .primary-btn {
         @apply bg-emerald-400 text-zinc-50 font-semibold px-4 py-2 rounded-xl border-2 border-emerald-600 shadow-lg hover:bg-emerald-600 cursor-pointer disabled:bg-zinc-200 disabled:border-zinc-400 disabled:text-zinc-400 disabled:shadow-none active:shadow-none active:bg-emerald-600
     }
+
+    .title {
+        @apply text-2xl text-emerald-600 font-semibold
+    }
 }

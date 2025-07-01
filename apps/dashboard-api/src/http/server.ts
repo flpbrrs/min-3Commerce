@@ -8,6 +8,8 @@ import {
 import { repositoryPlugin } from "./plugins/repositories.plugin";
 
 import { getCLientes } from "./routes/get-clientes";
+import { getClientesDetalhes } from "./routes/get-cliente-detalhe";
+import { getResumoPedidos } from "./routes/get-resumo-pedidos";
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
@@ -21,6 +23,8 @@ app.register(fastifyCors, {
 app.register(repositoryPlugin)
 
 app.register(getCLientes)
+app.register(getClientesDetalhes)
+app.register(getResumoPedidos)
 
 app.listen({ port: 4000 }).then(() => {
     console.log("Dashboard-api running on port: 4000")

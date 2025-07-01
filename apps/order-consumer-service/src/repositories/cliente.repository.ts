@@ -1,4 +1,4 @@
-import { Cliente, Pedido } from "@3c/domain/entities";
+import { Cliente } from "@3c/domain/entities";
 import { ClienteRepository } from "@3c/domain/providers";
 import { prisma } from "@3c/prisma-db";
 

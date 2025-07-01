@@ -1,0 +1,22 @@
+{
+    "name": "@3c/dashboard-api",
+    "version": "0.0.0",
+    "scripts": {
+        "dev": "tsx watch src/http/server.ts"
+    },
+    "dependencies": {
+        "@3c/prisma-db": "*",
+        "@3c/domain": "*",
+        "@fastify/cors": "^11.0.1",
+        "fastify": "^5.4.0",
+        "fastify-plugin": "^5.0.1",
+        "fastify-type-provider-zod": "^4.0.2",
+        "zod": "^3.25.67"
+    },
+    "devDependencies": {
+        "@3c/eslint": "*",
+        "@3c/typescript": "*",
+        "@types/node": "^24.0.7",
+        "tsx": "^4.20.3"
+    }
+}
